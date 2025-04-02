@@ -37,7 +37,19 @@ void insertion_sort(int a[],int n,long long& comparisions) {
 
 // Bubble Sort
 void bubble_sort(int a[],int n,long long& comparisions) {
-
+    bool swap=true;
+	int temp;
+	for(int i=0;++comparisions&&swap;i++){
+		swap=false;
+		for(int j=0;++comparisions&&j<n-1;j++){
+			if(++comparisions&&a[j]>a[j+1]){
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+				swap=true;	
+			}
+		}
+	}
 }
 
 // Shell Sort
@@ -77,7 +89,29 @@ void heap_sort(int a[],int n,long long& comparisions) {
 // Merge Sort
 
 void merge(int a[],int left,int mid,int right,long long &comparisions) {
+    if(++comparisions&&left>=right) return ;
+	int mid=left+ (right-left)/2;
+	int *temp=new int[right-left+1];
+	int i=left,j=mid+1,count=0;
+	while(++comparisions&&i<=mid&&++comparisions&&j<=right){
+		if(++comparisions&&a[i]<a[j]){
+			temp[count++]=a[i];
+			i++;
+		}else{
+			temp[count++]=a[j];
+			j++;
+		}
+	}while(++comparisions&&i<=mid){
+		temp[count++]=a[i++];
+	}while(++comparisions&&j<=right){
+		temp[count++]=a[j++];
+	}for(int o=0;++comparisions&&o<count;o++){
+		a[left+o]=temp[o];
+	}delete[] temp;
+}
 
+void MergeSort(int a[],int left,int right,long long& comparisions){
+    
 }
 
 void merge_sort(int a[],int n,long long& comparisions) {
@@ -85,10 +119,6 @@ void merge_sort(int a[],int n,long long& comparisions) {
 }
 
 // Quick Sort
-int partition(int a[],int left,int rigth,long long& comparisions) {
-    
-}
-
 void quick_sort(int a[],int n,long long& comparisions) {
     
 }
